@@ -1,12 +1,54 @@
+
+* {
+  margin: 5px;
+  padding: 0px;
+  box-sizing: border-box;
+
+}
+ 
+
 body {
-    background-image: url("https://cdn.pixabay.com/photo/2022/03/02/18/07/russian-borzoi-7043714_960_720.jpg");
+    background-image: url(../img/sora_black.jpg);
     background-size: auto 100vh;
-    font-family: Arial; 
+    font-family: 'Permanent Marker', cursive;
     height: 100vh;
+    font-size: 10px;
+  }
+
+  /* se a tela tiver pelo ao menos 400 pixels vai carregar estes estilos */
+  @media (min-width: 400px) {
+    body {
+      font-size: 14px;
+    }
+  }
+  
+  /* breakpoint */
+
+  @media (min-width: 600px) {
+    body {
+      font-size: 18px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    body {
+      font-size: 22px;
+    }
+  }
+
+  header {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .menu{
     background-color: white;
+    position:fixed;
+    width: 100vw;
+    top: -20px;
+    z-index: 1;
   }
   
   .menu ul {
@@ -18,23 +60,151 @@ body {
   .menu li {
     list-style: none;
   }
+
+  .menu a {
+  display: block;
+  padding: 10px 20px;
+  transition: background-color 5s, color, 2s;;
+  }
   
+  .menu a:hover {
+    background-color: teal;
+    color: white;
+  }
+
   a {
-    color: teal;
+    color: black;
     text-decoration: none;
   }
   
   a:hover {
     text-decoration: underline;
   }
+
+  .titulo {
+   transform: scale(0.2) translateY(50vh); 
+   opacity: 0;
+
+   animation: linear 2s animacaoTitulo forwards;
+  }
+
+  @keyframes animacaoTitulo{
+    from {
+      transform: scale(0.2) translateY(50vh); 
+      opacity: 0;
+    }
+    to {
+      transform: scale(1) translateY(0); 
+      opacity: 1;
+    } 
+  }
   
   .site-subtitle,
   .site-title {
     color: whitesmoke;
     text-align: center;
+    font-family: 'Permanent Marker', cursive;
   }
   
   .site-subtitle {
     font-style: italic;
+    font-family: 'Roboto Slab', serif;
+    line-height: 1.8em;
+  }
+
+  .sobre,
+  .contato,
+  .portifolio {
+    padding: 2em;
+    height: 100vh;
+    
+  }
+
+  @media (min-width: 1200px) {
+    .sobre,
+    .contato,
+    .portifolio {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    }
+  }
+
+  .h2,
+  .contato,
+  .portifolio h2{
+    font-family: 'Permanent Marker', cursive;
+    margin-bottom: 1.5em;
+    font-size: 1em;
+  }
+
+  .sobre p {
+    color:white;
+    text-indent: 1.4em;;
+    margin-bottom: 1.4em;
+    text-align: justify;
+  }
+  .sobre a {
+    color:black;
+    text-decoration: underline;
+  }
+
+  .sobre .avatar {
+    float:right;
+    margin-left: 2em;
+  }
+
+  .sobre .avatar img {
+    border-radius: 50%;
   }
   
+   
+  .portifolio .grid {
+    display: grid;
+    gap: 2em;
+  }
+
+   @media (min-width: 880px) {
+    .portifolio .grid{
+    grid-template-columns: repeat(3, 260px);
+    align-content: center;
+    justify-content: center;
+    height: calc(100vh - 8em - 48px);
+    }
+   }
+
+   .portifolio figure{
+     text-align: center;
+   }
+
+
+
+  .img-portfolio {
+    height: 180px;
+    width: 240px; 
+    border-radius: 50px;
+    transition: transform 500ms;
+  }
+
+  .img-portfolio:hover {
+    transform: scale(1.2);
+  }
+  
+  .contato .icons {
+    text-align: center;
+  
+  }
+  .contato a {
+    color: whitesmoke;
+    font-size: 3em;
+    transition: text-shadow 1s;
+  }
+
+  .contato a:active,
+  .contato a:hover {
+    text-decoration: none;
+    text-shadow: 0px 0px 10px rgb(255, 255, 255, .5);
+  }
+
+
+
